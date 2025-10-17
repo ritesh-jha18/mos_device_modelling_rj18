@@ -1,42 +1,42 @@
-#EE5341: Level-3 MOSFET Modeling Project
+EE5341: Level-3 MOSFET Modeling Project
 
-This repository contains the project work for EE5341: MOS Device Modeling. The project implements a Level-3 DC MOSFET model in Verilog-A for NMOS and PMOS devices and simulates a CMOS inverter. It also explores the effect of channel-length modulation (λ) on device and inverter characteristics.
+This repository contains the Level-3 MOSFET modeling project for EE5341. The project implements NMOS, PMOS, and a CMOS inverter using Verilog-A and analyzes the effect of channel-length modulation (λ) on device and circuit behavior.
 
-Project Overview
+🔹 Features
 
-Implemented Level-3 MOSFET models for n-channel and p-channel transistors in Verilog-A.
+Generic Level-3 MOSFET Verilog-A module for NMOS and PMOS
 
-Studied output characteristics (ID vs VDS) and transfer characteristics (ID vs VGS) for both NMOS and PMOS.
+Simulation of output characteristics (ID vs VDS) and transfer characteristics (ID vs VGS)
 
-Analyzed CMOS inverter behavior under varying λ values.
+CMOS inverter analysis with input-output voltage characteristics
 
-Compared device and inverter performance for λ = 0, 0.01, and 0.1 V⁻¹.
+Sweep of channel-length modulation λ values: 0, 0.01, 0.1 V⁻¹
 
-Validated the effect of channel-length modulation on saturation current, output resistance, and inverter voltage transfer characteristics.
+Demonstrates body effect and short-channel effects
 
-Folder Structure
+📂 Repository Structure
 .
 ├── VerilogA/
-│   ├── level3_mosfet.va      # Generic Level-3 NMOS/PMOS model
-│   └── cmos_inverter.va      # CMOS inverter example using the above model
+│   ├── level3_mosfet.va      # NMOS/PMOS Level-3 model
+│   └── cmos_inverter.va      # CMOS inverter example
 ├── Schematics/
-│   ├── nmos_circuit.png      # NMOS simulation schematic
-│   ├── pmos_circuit.png      # PMOS simulation schematic
-│   └── cmos_inverter.png     # CMOS inverter schematic
+│   ├── nmos_circuit.png      
+│   ├── pmos_circuit.png      
+│   └── cmos_inverter.png     
 ├── Plots/
-│   ├── nmos_id_vds.png       # Output characteristics of NMOS
-│   ├── nmos_id_vgs.png       # Transfer characteristics of NMOS
-│   ├── pmos_id_vds.png       # Output characteristics of PMOS
-│   ├── pmos_id_vgs.png       # Transfer characteristics of PMOS
-│   └── cmos_vtc.png          # CMOS inverter voltage transfer curve
-├── README.md                 # Project description
-└── Report.pdf                # Full project report with results and conclusions
+│   ├── nmos_id_vds.png       
+│   ├── nmos_id_vgs.png       
+│   ├── pmos_id_vds.png       
+│   ├── pmos_id_vgs.png       
+│   └── cmos_vtc.png          
+├── Report.pdf                
+└── README.md                 
 
-How to Run Simulations
+⚡ How to Run
 
-Open your Cadence Virtuoso or any compatible Verilog-A simulator.
+Open Cadence Virtuoso (or compatible Verilog-A simulator).
 
-Instantiate the level3_mosfet module for NMOS or PMOS:
+Instantiate the NMOS/PMOS module with desired parameters:
 
 level3_mosfet n1(drain, gate, source, bulk);
 defparam n1.TYPE = "NMOS";
@@ -47,7 +47,7 @@ defparam n1.KP = 5e-4;
 defparam n1.LAMBDA = 0.1;
 
 
-Sweep VDS or VGS for output/transfer characteristics.
+Sweep VDS for output characteristics or VGS for transfer characteristics.
 
 For CMOS inverter, instantiate one NMOS and one PMOS and sweep the input voltage:
 
@@ -55,17 +55,23 @@ level3_mosfet nmos(d, vin, gnd, gnd);
 level3_mosfet pmos(d, vin, vdd, vdd);
 
 
-Collect plots for ID vs VDS, ID vs VGS, and Vout vs Vin.
+Export plots for ID vs VDS, ID vs VGS, and Vout vs Vin.
 
-Key Observations
+📈 Key Observations
 
-Increasing λ introduces finite output conductance in saturation, affecting drain current.
+Increasing λ increases drain current in saturation (finite output resistance).
 
-CMOS inverter gain decreases slightly with higher λ due to reduced output resistance.
+CMOS inverter gain decreases slightly with higher λ, slightly affecting switching sharpness.
 
-Level-3 MOSFET models capture body effect, channel-length modulation, and basic saturation behavior accurately.
+Level-3 MOSFET model captures body effect, channel-length modulation, and realistic saturation behavior.
 
-Technologies Used
+🎬 Demo
+
+Here is a visual example of the CMOS inverter simulation:
+
+ID vs VDS and ID vs VGS plots are in the Plots/ folder.
+
+🛠 Technologies Used
 
 Verilog-A for device modeling
 
@@ -75,7 +81,7 @@ MATLAB / Python for plotting (optional)
 
 LaTeX / Overleaf for project report
 
-Author
+📝 Author
 
 Ritesh Jha
 EE5341: MOS Device Modeling – Project Assignment
